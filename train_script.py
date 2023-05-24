@@ -51,7 +51,7 @@ def run(config):
     train_df, val_df = load_ds(config)
     train_tok = tokenize(train_df, tokenizer, config)
     val_tok = tokenize(val_df, tokenizer, config)
-    rouge_fn = rouge_metrics_scorer(config, tokenizer)
+    rouge_fn = rouge_metrics_scorer(tokenizer)
     train(
         model,
         train_tok,
