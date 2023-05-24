@@ -1,0 +1,32 @@
+model: 'facebook/bart-base'
+dataset: 'wiki_qa'
+load_in_8bit: false
+device: 'cuda'
+eval_batch_size: 32
+lr: 2e-5
+
+input_column: 'question'
+target_column: 'answer'
+drop_columns: ['label', 'question_id', 'document_title']
+
+project_name: 'bart-qa'
+
+training:
+  batch_size: 32
+  warmup_steps: 1000
+  num_train_epochs: 1
+
+evaluation:
+  batch_size: 32
+
+logging:
+  steps: 100
+  report_to: 'wandb'
+
+generation:
+  max_length: 32
+
+
+save_limit: 2
+metric_for_best_model: 'rouge2'
+seed: 42
