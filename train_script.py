@@ -20,8 +20,8 @@ def train(model, train_tok, val_tok, rouge_fn, tokenizer, config):
         per_device_train_batch_size=config['training']['batch_size'],
         per_device_eval_batch_size=config['evaluation']['batch_size'],
         gradient_accumulation_steps=1,
-        learning_rate=config['lr'],
-        num_train_epochs=config['num_train_epochs'],
+        learning_rate=config['training']['lr'],
+        num_train_epochs=config['training']['num_train_epochs'],
         warmup_steps=config["warmup_steps"],
         # misc args
         report_to=config['logging']['report_to'],
