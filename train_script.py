@@ -22,7 +22,7 @@ def train(model, train_tok, val_tok, rouge_fn, tokenizer, config):
         gradient_accumulation_steps=1,
         learning_rate=config['training']['lr'],
         num_train_epochs=config['training']['num_train_epochs'],
-        warmup_steps=config["warmup_steps"],
+        warmup_steps=config['training']["warmup_steps"],
         # misc args
         report_to=config['logging']['report_to'],
         seed=config['seed'],
