@@ -11,8 +11,8 @@ def generate(text, model, tokenizer):
 
 def batch_tokenize(batch, tokenizer, config):
     """Construct the batch (source, target) and run them through a tokenizer."""
-    source = batch[config['input_column']]
-    target = batch[config['target_column']]
+    source = batch[config['dataset']['input_column']]
+    target = batch[config['dataset']['target_column']]
     src_tokenized = tokenizer(source, truncation=True)
     with tokenizer.as_target_tokenizer():
         trg_tokenized = tokenizer(target, truncation=True)

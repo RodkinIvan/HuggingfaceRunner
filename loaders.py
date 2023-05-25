@@ -16,9 +16,9 @@ def load_model_and_tokenizer(config):
     return model, tokenizer
 
 def load_ds(config):
-    dataset = load_dataset(config['dataset'])
-    train_df = dataset['train'].remove_columns(config['drop_columns'])
-    val_df = dataset['validation'].remove_columns(config['drop_columns'])
+    dataset = load_dataset(*(config['dataset']['name']))
+    train_df = dataset['train'].remove_columns(config['dataset']['drop_columns'])
+    val_df = dataset['validation'].remove_columns(config['dataset']['drop_columns'])
     return train_df, val_df
 
 def rouge_metrics_scorer(tokenizer):

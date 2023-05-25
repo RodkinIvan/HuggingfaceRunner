@@ -4,10 +4,11 @@ model: 'facebook/bart-base'
 load_in_8bit: false
 device: 'cuda'
 
-dataset: 'wiki_qa'
-input_column: 'question'
-target_column: 'answer'
-drop_columns: ['label', 'question_id', 'document_title']
+dataset:
+  name: ['wiki_qa']
+  input_column: 'question'
+  target_column: 'answer'
+  drop_columns: ['label', 'question_id', 'document_title']
 
 
 training:
