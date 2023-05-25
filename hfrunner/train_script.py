@@ -3,8 +3,8 @@ from datasets import load_dataset
 from evaluate import load
 import torch
 
-from loaders import load_model_and_tokenizer, load_ds, rouge_metrics_scorer
-from process import tokenize
+from hfrunner.loaders import load_model_and_tokenizer, load_ds, rouge_metrics_scorer
+from hfrunner.process import tokenize
 
 
 def train(model, train_tok, val_tok, rouge_fn, tokenizer, config):
