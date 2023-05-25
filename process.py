@@ -2,7 +2,7 @@ from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, Seq2SeqTrainer, S
 from datasets import load_dataset
 from evaluate import load
 
-def generate(text, model, tokenizer):
+def generate(text, model, tokenizer, config):
   tokens = tokenizer.encode(text, return_tensors='pt').to(config['device'])
   respose = model.generate(tokens, max_length=20)
   return tokenizer.decode(respose[0], skip_special_tokens=True)
