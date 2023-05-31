@@ -3,3 +3,5 @@ datasets
 ruamel.yaml
 tensorrt
 torch
+evaluate
+rouge_score
