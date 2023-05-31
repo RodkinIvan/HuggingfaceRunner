@@ -3,8 +3,9 @@ from datasets import load_dataset
 from evaluate import load
 
 def generate(text, model, tokenizer, config):
+  model = model.to(config['device'])
   tokens = tokenizer.encode(text, return_tensors='pt').to(config['device'])
-  respose = model.generate(tokens, max_length=20)
+  respose = model.generate(tokens, max_length=config['generation']['max_length'])
   return tokenizer.decode(respose[0], skip_special_tokens=True)
 
 
