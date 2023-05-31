@@ -5,3 +5,4 @@ tensorrt
 torch
 evaluate
 rouge_score
+accelerate
