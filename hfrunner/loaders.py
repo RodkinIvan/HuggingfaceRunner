@@ -2,6 +2,7 @@ from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, Seq2SeqTrainer, S
 from datasets import load_dataset
 from evaluate import load
 import numpy as np
+import torch 
 
 def load_model_and_tokenizer(config):
     BASE_MODEL = config['model']
@@ -9,7 +10,8 @@ def load_model_and_tokenizer(config):
     model = AutoModelForSeq2SeqLM.from_pretrained(
         BASE_MODEL,
         load_in_8bit=config['load_in_8bit'],
-        device_map="auto",
+        device_map='auto',
+        torch_dtype=torch.float16 if config['load_in_8bit'] else 'auto'
     )
 
     tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL)

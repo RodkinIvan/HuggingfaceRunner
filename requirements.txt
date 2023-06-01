@@ -6,3 +6,4 @@ torch
 evaluate
 rouge_score
 accelerate
+bitsandbytes
