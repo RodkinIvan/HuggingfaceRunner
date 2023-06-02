@@ -1,3 +1,4 @@
+rm -rf dist/*
 v=$(bump)
 git add setup.py 
 git commit -m "$v"
